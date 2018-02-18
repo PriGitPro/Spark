@@ -1,10 +1,10 @@
+import SpyderConf as conf
+print(conf.createConfig())
+
 from pyspark.mllib.regression import LabeledPoint
 from pyspark.mllib.tree import DecisionTree
 from pyspark import SparkConf, SparkContext
 from numpy import array
-from . import createConfig
-
-print(createConfig())
 # Boilerplate Spark stuff:
 conf = SparkConf().setMaster("local").setAppName("SparkDecisionTree")
 sc = SparkContext(conf = conf)
