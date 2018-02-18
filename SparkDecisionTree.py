@@ -2,7 +2,9 @@ from pyspark.mllib.regression import LabeledPoint
 from pyspark.mllib.tree import DecisionTree
 from pyspark import SparkConf, SparkContext
 from numpy import array
+from . import createConfig
 
+print(createConfig())
 # Boilerplate Spark stuff:
 conf = SparkConf().setMaster("local").setAppName("SparkDecisionTree")
 sc = SparkContext(conf = conf)
@@ -40,7 +42,7 @@ def createLabeledPoints(fields):
         previousEmployers, educationLevel, topTier, interned]))
 
 #Load up our CSV file, and filter out the header line with the column names
-rawData = sc.textFile("e:/sundog-consult/udemy/datascience/PastHires.csv")
+rawData = sc.textFile("PastHires.csv")
 header = rawData.first()
 rawData = rawData.filter(lambda x:x != header)
 
